@@ -221,5 +221,79 @@ git commit -m 'configuração do projeto'
 git push
 ```
 
+# PASSO 3 
+
+Copiar a URL do projeto no GitHub
+
+Clonar o repositório na sua máquina 
+```
+git clone URL_REPOSITORIO
+```
+Acessar pasta
+```
+cd NOME_REPOSITORIO
+```
+Reinstalar os pacotes da aplicação
+```
+npm i
+```
+Criar pastas dentro da pasta src
+```
+mkdir src/routes
+```
+Criar arquivo dentro da pasta routes
+```
+touch src/routes/rotas.js
+```
+Abrir o VSCode
+```
+code .
+```
+
+
+Abrir o arquivo rotas.js e digitar os códigos
+```
+// Importar o modulo de Router do express
+const { Router } = require('express');
+
+// Instanciar o Router na variável router
+const router = Router();
+
+router.get('/listar', (request, response) => {
+    response.send('Método GET: listar informações');
+});
+router.post('/cadastrar', (request, response) => {
+    response.send('Método POST: salvar informações');
+});
+router.put('/user/:id', (request, response) => {
+    response.send('Método PUT: atualizar informações');
+});
+router.delete('/user/:id', (request, response) => {
+    response.send('Método DELETE: remover informações');
+});
+
+module.exports = router;
+```
+Abrir o arquivo app.js e adicionar o código
+```
+const router = require('./routes/rotas');
+```
+* Esta linha deve inserida depois da criação da variável app
+```
+app.use('/api', router);
+```
+Atualizar projeto no gitHub
+```
+git add .
+```
+```
+git commit -m 'rotas do projeto'
+```
+```
+git push
+```
+
+
+
 
 
