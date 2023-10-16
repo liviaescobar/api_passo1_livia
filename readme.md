@@ -293,7 +293,64 @@ git commit -m 'rotas do projeto'
 git push
 ```
 
+# PASSO 4
+* Abrir o gitBash em um local do computador
+* Digitar o comando 'git clone' junto com a URL do seu repositório
+```
+git clone URL_REPOSITORIO
+```
 
+Acessar pasta 
+```
+cd NOME_REPOSITORIO
+```
+
+
+Reinstalar os pacotes da aplicação
+```
+npm i
+```
+
+Recriar arquivo .env
+```
+nano .env
+```
+Digitar no arquivo .env
+```
+PORT = 3008
+```
+
+* Ctrl + o: Salvar o arquivo
+* Enter: Confirmar
+* Ctrl + x: Fechar o arquivo
+
+## Insomnia
+* Abrir no Computador
+* Clicar no ícone "+"
+* Defina o nome do projeto e clique no botão 'Create'
+* Clique no botão 'New Collection'
+* Defina o nome da coleção e clique no botão 'Create'
+* Clique no botão 'New HTTP Request'
+
+* Agora só precisamos descrever a url da nossa API com a porta que definimos (http://localhost:3000) e as rotas (/api/listar) que criamos no arquivo rotas.js do passo 3
+
+####  ATENÇÃO
+Antes de clicar no botão 'Send' para executar a ação da rota, execute o comando 'npm start' no seu projeto para rodar a API e verifique se o retorno estará conforme a imagem a seguir, ou seja, rodando na porta definida para o servidor
+
+- Após validar que a API esta rodando, executa a ação da rota clicando no botão 'Send'
+- O Insomnia deverá retornar a mensagem descrita no método GET do nosso arquivo de rotas
+
+GET 
+<img src="./assets/get.jpeg">
+
+POST
+<img src="./assets/post.jpeg">
+
+PUT
+<img src="./assets/put.jpeg">
+
+DELETE
+<img src="./assets/delete.jpeg">
 
 
 
