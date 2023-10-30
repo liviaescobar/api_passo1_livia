@@ -352,5 +352,89 @@ PUT
 DELETE
 <img src="./assets/delete.jpeg">
 
+# PASSO 5
+* Clonar o repositório 
+```
+git clone URL_REPOSITORIO
+```
 
+* Acessar a pasta
+```
+cd NOME_REPOSITORIO
+```
+* Reinstalar os pacotes da aplicação
+```
+npm i
+```
+* Recriar arquivo .env e colocar: 
+```
+PORT = 3000
+```
+* Criar pasta 'controllers' dentro da pasta 'src'
+```
+mkdir scr/controllers
+```
+* Criar arquivo 'crudController.js' na pasta 'controllers'
+```
+touch src/controllers/crudController.js
+```
+* Colar os códigos no arquivo crudController.js
+```
+function listarDados(request, response) {
+    response.send('Retorno de lista de informação do Banco de dados');
+}
 
+function gravarDados(request, response) {
+    response.send('Método utilizado para salvar informações!');
+}
+
+function atualizarDados(request, response) {
+    response.send('Método utilizado para editar informações!');
+}
+
+function deletarDados(request, response) {
+    response.send('Método utilizado para deletar informações!');
+}
+
+module.exports = {
+    listarDados,
+    gravarDados, 
+    atualizarDados, 
+    deletarDados
+}
+```
+* Alterar o arquivo 'rotas.js'
+```
+// Importar pacote do express
+const { Router } = require('express');
+// Instanciar o Router na variavel router
+const router = Router();
+// Importar funções do controller para a rota acessar as funções
+const { 
+    listarDados,
+    gravarDados,
+    atualizarDados,
+    deletarDados
+ } = require('../controllers/crudController');
+
+router.get('/listar', listarDados);
+
+router.post('/gravar', gravarDados);
+
+router.put('/atualizar/:id', atualizarDados);
+
+router.delete('/deletar/:id', deletarDados);
+
+module.exports = router;
+```
+GET 
+<img src="./assets2/get.jpeg">
+
+POST
+<img src="./assets2/post.jpeg">
+
+PUT
+<img src="./assets2/put.jpeg">
+
+DELETE
+<img src="./assets2/delete.jpeg">
